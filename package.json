@@ -1,0 +1,67 @@
+{
+  "name": "consult-h5",
+  "private": true,
+  "scripts": {
+    "start": "cross-env UMI_ENV=dev umi dev",
+    "start:test": "cross-env UMI_ENV=test umi dev",
+    "start:prod": "cross-env UMI_ENV=prod umi dev",
+    "build:dev": "cross-env UMI_ENV=dev umi build",
+    "build:test": "cross-env UMI_ENV=test umi build",
+    "build:uat": "cross-env UMI_ENV=uat umi build",
+    "build": "cross-env UMI_ENV=prod umi build",
+    "postinstall": "umi generate tmp",
+    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
+    "test": "umi-test",
+    "prepare": "umi generate tmp && husky install",
+    "test:coverage": "umi-test --coverage",
+    "lint": "eslint . --fix"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write",
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "antd-mobile": "^5.0.0-rc.25",
+    "react": "17.x",
+    "react-dom": "17.x",
+    "react-transition-group": "^4.4.2",
+    "umi": "^3.5.20",
+    "umi-plugin-keep-alive": "^0.0.1-beta.30",
+    "umi-request": "^1.4.0"
+  },
+  "devDependencies": {
+    "@types/babel-core": "^6.25.7",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@umijs/plugin-dva": "^0.13.1",
+    "@umijs/plugin-model": "^2.6.2",
+    "@umijs/test": "^3.5.20",
+    "babel-plugin-import": "^1.13.3",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.8.0",
+    "eslint-config-umi": "^1.6.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-react": "^7.28.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^10.0.7",
+    "postcss": "^8.4.6",
+    "postcss-focus": "^5.0.1",
+    "postcss-px-to-viewport": "^1.1.1",
+    "prettier": "^2.2.0",
+    "typescript": "^4.1.2",
+    "yorkie": "^2.0.0"
+  }
+}

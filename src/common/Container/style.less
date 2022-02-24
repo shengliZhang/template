@@ -1,0 +1,31 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+.headers {
+  padding-top: constant(safe-area-inset-top);
+  padding-top: env(safe-area-inset-top);
+  flex: 0 0 45px;
+}
+.bodys {
+  flex: 1;
+  padding-left: constant(safe-area-inset-left);
+  padding-left: env(safe-area-inset-left);
+  padding-right: constant(safe-area-inset-right);
+  padding-right: env(safe-area-inset-right);
+  overflow: hidden;
+}
+.bottomBtns {
+  border-top: 1px solid #f7f7f7;
+  flex: 0 0 50px;
+  display: flex;
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+  box-sizing: border-box;
+  padding: 5px 15px;
+  background-color: #fff;
+}
